@@ -14,7 +14,7 @@ google-auth-oauthlib==1.0.0
 google-pasta==0.2.0
 grpcio==1.71.0
 gunicorn==23.0.0
-h5py==3.13.0
+h5py==3.8.0
 idna==3.10
 importlib_metadata==8.7.0
 imutils==0.5.4
@@ -30,7 +30,7 @@ MarkupSafe==3.0.2
 ml_dtypes==0.5.1
 numpy==1.23.5
 oauthlib==3.2.2
-opencv-python==4.5.1.48
+opencv-python==4.5.5.64
 opt_einsum==3.4.0
 packaging==25.0
 protobuf==4.25.7
@@ -39,8 +39,8 @@ pyasn1_modules==0.4.2
 requests==2.32.3
 requests-oauthlib==2.0.0
 rsa==4.9.1
-scikit-learn==0.24.2
-scipy==1.13.1
+scikit-learn==1.2.2
+scipy==1.10.1
 six==1.17.0
 tensorboard==2.12.3
 tensorboard-data-server==0.7.2
