@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospitals and Precautions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/free-vector/modern-hexagon-pattern-geometric-backdrop-with-shiny-cardio-line-vector_1017-48274.jpg?semt=ais_hybrid&w=740'); /* You can change this URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(1, 1, 5, 0.9);
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {   
+            padding: 20px;
+            margin: 20px;
+        
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(129, 19, 19, 0.3);
+        }
+
+        h2 {
+            color: #e31d0b;
+            font-size:xx-large;
+        }
+
+        .dropdown {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .precautions ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .precautions ul li {
+            background: #e7f4e7;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Health Diagnosis - Hospitals and Precautions</h1>
+    </header>
+
+    <section>
+        <h2>Precautions to Be Taken</h2>
+        <div class="precautions">
+            <ul>
+                <li>Avoid unnecessary exposure to radiation from medical imaging or environmental sources.
+                    If working in radiation-prone environments (such as hospitals or labs),
+                </li>
+                <li>  Eat a balanced diet rich in antioxidants, fruits, vegetables, and whole
+                     grains to support brain health.</li>
+                <li> Physical activity strengthens the immune system, making it more 
+                    effective in detecting and eliminating abnormal cells</li>
+                <li>Reducing exposure to environmental toxins, tobacco, and excessive alcohol consumption is crucial for maintaining overall health 
+                    and minimizing the risk of various diseases, including brain tumors..</li>
+                <li>Stress and depression can have profound effects on overall health, influencing both mental and physical well-being. Chronic stress leads to the release of hormones 
+                    like cortisol, which, when elevated for prolonged periods, can weaken the immune system,</li>
+                <li>Regular health monitoring and timely medical consultations play a crucial role in early disease detection and preventive care. Many health conditions, including chronic illnesses and certain cancers, develop silently without noticeable symptoms in their early stages
+.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Best  Hospitals</h2>
+        <label for="hospital">Select a Hospital:</label>
+        <select class="dropdown" id="hospital" onchange="updateMap()">
+            <option value="">-- Select a Hospital --</option>
+            <option value="my-hospital">My Hospital</option>
+            <option value="sgf-hospital">SGF Hospital</option>
+            <option value="abc-hospital">ABC Hospital</option>
+        </select>
+    </section>
+
+    <section>
+        <h2>Google Map of Selected Hospital</h2>
+        <div id="map-container">
+            <iframe id="map-frame" src="" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <script>
+        function updateMap() {
+            const hospital = document.getElementById("hospital").value;
+            const mapFrame = document.getElementById("map-frame");
+
+            const maps = {
+                "my-hospital": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799152616!2d-74.25987736213856!3d40.69767006375917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25411816f11fb%3A0x80e57f93059e9cc9!2sNew%20York%20Presbyterian%20Hospital!5e0!3m2!1sen!2sus!4v1635527300422!5m2!1sen!2sus",
+                "sgf-hospital": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.066526662114!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670b8ab38e3%3A0xbbb8fcb785d5cccd!2sSGF%20Hospital!5e0!3m2!1sen!2sin!4v1635527300422!5m2!1sen!2sin",
+                "abc-hospital": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.668933395166!2d77.6051!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1762b77e41c7%3A0xc27509f3ea6f1f53!2sABC%20Hospital!5e0!3m2!1sen!2sin!4v1635527300422!5m2!1sen!2sin"
+            };
+
+            mapFrame.src = hospital ? maps[hospital] : "";
+        }
+    </script>
+
+</body>
+
+</html>

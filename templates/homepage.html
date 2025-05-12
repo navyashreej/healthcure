@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            background-color: rgba(0, 102, 204, 0.85);
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+        .sidebar:hover {
+            width: 250px;
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1.3rem; /* Increased icon size */
+            color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar a i {
+            margin-right: 15px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .sidebar a span {
+            display: none;
+        }
+
+        .sidebar:hover a span {
+            display: inline;
+        }
+
+        .sidebar:hover a i {
+            margin-right: 15px;
+        }
+
+        .sidebar a:hover {
+            background-color: #28a745;
+            transform: translateX(10px);
+        }
+
+        /* Navbar Brand (HC -> HealthCure Transition) */
+        .sidebar .navbar-brand {
+            font-size: 1.8rem;
+            padding: 0 20px;
+            color: #f5f5f5;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Display only HC by default */
+        .navbar-brand .full-text {
+            display: none;
+        }
+
+        .navbar-brand .short-text {
+            display: inline;
+        }
+
+        /* Show full HealthCure text on hover */
+        .sidebar:hover .navbar-brand .full-text {
+            display: inline;
+        }
+
+        .sidebar:hover .navbar-brand .short-text {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-left: 100px;
+            transition: margin-left 0.3s ease, background-position 0.3s ease; /* Smooth transition */
+            background: url('https://img.freepik.com/free-vector/circles-background-dark-tones_60389-166.jpg') no-repeat center center;
+            background-size: 450px 950px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Disease Detection Section */
+        .headstyle {
+            color: #0056b3;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-left: 80px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content {
+            margin-left: 80px;
+            transition: margin-left 0.3s ease;
+            padding: 20px;
+        }
+
+        .sidebar:hover ~ .hero {
+            margin-left: 300px;
+        }
+
+        .sidebar:hover ~ .content {
+            margin-left: 50px;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            background-color: #0066cc;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .headstyle {
+                margin-left: 200px;
+            }
+
+            .hero,
+            .content {
+                margin-left: 100px;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+
+    <title>HealthCure - Your Medical Solution</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <a class="navbar-brand" href="/">
+            <span class="short-text">HC</span>
+            <span class="full-text">HealthCure</span>
+        </a>
+        <a href="/covid"><i class="fas fa-virus"></i> <span>Covid</span></a>
+        <a href="/braintumor"><i class="fas fa-brain"></i> <span>Brain Tumor</span></a>
+        <a href="/breastcancer"><i class="fas fa-ribbon"></i> <span>Breast Cancer</span></a>
+        <a href="/alzheimer"><i class="fas fa-brain"></i> <span>Alzheimer</span></a>
+        <a href="/diabetes"><i class="fas fa-syringe"></i> <span>Diabetes</span></a>
+        <a href="/pneumonia"><i class="fas fa-lungs"></i> <span>Pneumonia</span></a>
+        <a href="/heartdisease"><i class="fas fa-heartbeat"></i> <span>Heart Disease</span></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+        <div>
+            <h1>Welcome to HealthCure</h1>
+            <p>Your all-in-one medical solution for early disease detection.</p>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2 class="text-center headstyle">7 Disease Detections</h2>
+
+        <div class="row g-4">
+            <!-- Covid Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/covid">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOF0-JXxfPg4j8H0opueae2mC_ztEYh_fTQ&s" class="card-img-top" alt="Covid Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Covid Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brain Tumor Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/braintumor">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjlERo59eJncfF-hKA3EGX9o_FV82kGNv0EQ&s" class="card-img-top" alt="Brain Tumor Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brain Tumor Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breast Cancer Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/breastcancer">
+                        <img src="https://d2jx2rerrg6sh3.cloudfront.net/image-handler/700/get/https://www.kelsey-seybold.com/-/media/Images/Conditions/BreastCancer/BreastCancer-2x.png?mw=500&hash=6F99C2A338B1856F8E9C2FA0B3F8F3E97D51BFC0" class="card-img-top" alt="Breast Cancer Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Breast Cancer Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alzheimer Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/alzheimer">
+                        <img src="https://img.freepik.com/free-vector/flat-vector-alzheimer-illustration_23-2148647464.jpg" class="card-img-top" alt="Alzheimer Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Alzheimer Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diabetes Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/diabetes">
+                        <img src="https://www.deepayurveda.in/cdn/shop/articles/diabetes-mellitus-types-symptoms-causes-treatment.jpg?v=1711977894" class="card-img-top" alt="Diabetes Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Diabetes Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pneumonia Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/pneumonia">
+                        <img src="https://img.freepik.com/free-vector/informative-poster-pneumonia-health-education-infographic_23-2148609641.jpg" class="card-img-top" alt="Pneumonia Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Pneumonia Detection</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heart Disease Detection -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="/heartdisease">
+                        <img src="https://d3hhrc0lqmcg0i.cloudfront.net/images/homepage/images/heart-disease-hero-image.jpg" class="card-img-top" alt="Heart Disease Detection">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Heart Disease Detection</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
